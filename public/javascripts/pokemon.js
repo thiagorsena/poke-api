@@ -23,24 +23,33 @@ async function pegarNomePokemon(nome) {
     return pokemon;
 }
 
+//Link para buscar os Types em outro lugar... pode usar o ID caso necessário
+//Alguns ID geram erro nesse link
+async function pegarTypePokemon(type) {
+    const response = await fetch(`https://pokeapi.co/api/v2/encounter-condition/${type}`);
+    const pokemon = await response.json();
+    return pokemon;
+}
+
 pegarNomePokemon(pokeSelect.value)
     .then(pokemon => nomePokemon = (pokemon.name));
-    pegarNomePokemon(pokeSelect.value)
+pegarNomePokemon(pokeSelect.value)
     .then(pokemon => console.log(pokemon.name));
 
 pegarNomePokemon(pokeSelect.value)
     .then(pokemon => idPokemon = (pokemon.id));
-    pegarNomePokemon(pokeSelect.value)
+pegarNomePokemon(pokeSelect.value)
     .then(pokemon => console.log(pokemon.id));
 
+//Para pegar os Types usa o ID e o location_area_encounters
 pegarNomePokemon(pokeSelect.value)
-    .then(pokemon => tipoPokemon = (pokemon.types.type.name));
-    pegarNomePokemon(pokeSelect.value)
-    .then(pokemon => console.log(pokemon.types.type.name));
+    .then(pokemon => tipoPokemon = (pokemon.location_area_encounters));
+pegarNomePokemon(pokeSelect.value)
+    .then(pokemon => console.log(pokemon.location_area_encounters));
 
 pegarNomePokemon(pokeSelect.value)
     .then(pokemon => pesoPokemon = (pokemon.weight));
-    pegarNomePokemon(pokeSelect.value)
+pegarNomePokemon(pokeSelect.value)
     .then(pokemon => console.log(pokemon.weight));
 
 
