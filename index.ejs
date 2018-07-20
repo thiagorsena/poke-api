@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="pt-bt">
+
+<head>
+  <title>
+    <%= title %>
+  </title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel='stylesheet' href='/stylesheets/style.css' />
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css" integrity="sha384-Smlep5jCw/wG7hdkwQ/Z5nLIefveQRIY9nfy6xoR1uRYBtpZgI6339F5dgvm/e9B"
+    crossorigin="anonymous">
+</head>
+
+<body>
+
+  <div class="container">
+    <main role="main" class="container">
+      <h1 class="mt-5">
+        <%= title %>
+      </h1>
+      <p class="lead">Bem vindo ao
+        <%= title %> sua API para consumo de dados
+          <a href="https://pokeapi.co/">https://pokeapi.co/</a>
+      </p>
+    </main>
+  </div>
+  <br>
+  <div class "container">
+    <div class="row">
+      <div class="col-md-2"></div>
+      <div class="col-md-4">
+        <img src="/images/pokemon_logo.png" class="img-fluid rounded mx-auto d-block" alt="Responsive image">
+      </div>
+      <div class="col-md-4"></div>
+      <div class="col-md-2"></div>
+    </div>
+  </div>
+
+  <br>
+
+  <div class="container">
+    <h1 class="mt-5">Exibir Dados dos Pokemons</h1>
+    <p class="lead">Selecione o Pokemon desejado para exibir as Informações:</a>
+    </p>
+    <form class="form-group" id="formPoke">
+      <div class="form-row align-items-center">
+        <div class="col">
+          <select class="custom-select" id="namePoke" name="namePoke" onchange="incluirPokemon()">
+            <option value="pikachu">Pikachu</option>
+            <option value="ditto">Ditto</option>
+            <option value="charizard">Charizard</option>
+            <option value="lugia">Lugia</option>
+            <option value="squirtle">Squirtle</option>
+          </select>
+        </div>
+        <div class="col">
+          <button type="button" class="btn btn-primary" onClick='parent.location="javascript:location.reload()"'>Buscar</button>
+        </div>
+    </form>
+    </div>
+
+    <br>
+
+    <div class="container">
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Nome</th>
+            <th scope="col">Tipo</th>
+            <th scope="col">Peso</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th id="idPokemon" scope="row"></th>
+            <td id="nomePokemon"></td>
+            <td id="tipoPokemon"></td>
+            <td id="pesoPokemon"></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <main id="infoPokemons">
+    </main>
+
+    <script src="/javascripts/pokemon.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+      crossorigin="anonymous"></script>
+</body>
+
+</html>
